@@ -1,0 +1,16 @@
+// *
+// * Insère une icone SVG encodé
+// * src: https://css-tricks.com/creating-a-maintainable-icon-system-with-sass/?ref=webdesignernews.com
+// * utile pour styler du code sur lequel on a pas la main
+// *
+$data-svg-prefix: 'data:image/svg+xml;utf-8,';
+
+@function get-icon( $icon, $color: #fff ) {
+
+  $icon: map-get($icons, $icon);
+  $placeholder: '%%COLOR%%';
+
+  $data-uri: str-replace(url($data-svg-prefix + $icon), $placeholder, $color);
+
+  @return str-replace( $data-uri, '#', '%23' );
+}

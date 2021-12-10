@@ -1,0 +1,34 @@
+// Mixin for transition with multiple property setting
+// Adapted from https://coderwall.com/p/qviyew/sass-compass-manytransitions-mixin
+
+$transition-property: all !default;
+$transition-duration: 300ms !default;
+$transition-easing: $ease-in-out-quint !default;
+$transition-delay: null !default;
+
+@mixin transition(
+  $properties-list : $transition-property,
+  $duration        : $transition-duration,
+  $easing          : $transition-easing,
+  $delay           : $transition-delay
+) {
+  $transitions: ();
+  @each $property in $properties-list {
+    $transition: $property;
+    $transitions: append($transitions, $transition, comma);
+  }
+
+  $transitions-length: length($transitions);
+
+
+  @if($transitions-length < 2 ) {
+    transition: $transitions $duration $transition-easing $delay;
+  }
+
+  @else {
+    transition-duration: $transition-duration;
+    transition-property: $transitions;
+    transition-timing-function: $transition-easing;
+    @if ($delay != null) {transition-delay: $delay;}
+  }
+}

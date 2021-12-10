@@ -1,0 +1,20 @@
+// *
+// * BREAKPOINTS LIBRARIES
+// *
+// [1] - La 4K fait 3840px de large mais cette valeur
+// prend en compte les "fake" 4k.
+$mobile-tiny: 320px;
+$mobile-medium: 360px;
+$mobile-large: 410px;
+
+$tablet-tiny: 600px;
+$tablet-medium: 768px;
+$tablet-large: 1024px;
+
+$laptop-tiny: 1280px;
+$laptop-medium: 1366px;
+$laptop-large: 1440px;
+$laptop-huge: 1600px;
+
+$fullhd: 1920px;
+$qhd: 2560px;

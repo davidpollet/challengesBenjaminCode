@@ -1,0 +1,67 @@
+$base-font-size: 16px !default;
+
+// * Mobile first media queries
+@mixin respond-from($value, $respond-direction: width, $orientation: null) {
+  $value-em: ($value / $base-font-size) * 1em;
+
+  @if $orientation !=null {
+    @media (min-#{$respond-direction}: $value-em) and (orientation: $orientation) {
+      @content;
+    }
+  } @else {
+    @media (min-#{$respond-direction}: $value-em) {
+      @content;
+    }
+
+    @if $respond-direction !='width' and $respond-direction !='height' {
+      @error 'Wrong direction : must be width or height';
+    }
+    @else if $orientation != null and $orientation !='portrait' and $orientation !='landscape' {
+    @error 'Wrong orientation : must be portrait or landscape';
+  }
+  }
+}
+
+// * Desktop first media queries
+@mixin respond-until($value, $respond-direction: width, $orientation: null) {
+  $value-em: ($value / $base-font-size) * 1em;
+
+  @if $orientation !=null {
+    @media (max-#{$respond-direction}: $value-em) and (orientation: $orientation) {
+      @content;
+    }
+  }  @else {
+    @media (max-#{$respond-direction}: $value-em) {
+      @content;
+    }
+  }
+
+  @if $respond-direction !='width' and $respond-direction !='height' {
+    @error 'Wrong direction : must be width or height';
+  }
+  @else if $orientation != null and $orientation !='portrait' and $orientation !='landscape' {
+    @error 'Wrong orientation : must be portrait or landscape';
+  }
+}
+
+// * deux media queries
+@mixin respond-between($value1, $value2, $respond-direction: width, $orientation: null) {
+  $value1-em: ($value1 / $base-font-size) * 1em;
+  $value2-em: ($value2 / $base-font-size) * 1em;
+  @if $orientation !=null {
+    @media (min-#{$respond-direction}: $value1-em) and (max-#{$respond-direction}: $value2-em) and (orientation: $orientation) {
+      @content;
+    }
+  }  @else {
+    @media (min-#{$respond-direction}: $value1-em) and (max-#{$respond-direction}: $value2-em) {
+      @content;
+    }
+  }
+
+  @if $respond-direction !='width' and $respond-direction !='height' {
+    @error 'Wrong direction : must be width or height';
+  }
+  @else if $orientation != null and $orientation !='portrait' and $orientation !='landscape' {
+    @error 'Wrong orientation : must be portrait or landscape';
+  }
+}
