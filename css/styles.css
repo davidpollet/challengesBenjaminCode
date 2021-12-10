@@ -1,0 +1,298 @@
+:root {
+  --bg: #1f1d21;
+  --body-color: #fff;
+  --rainbow-gradient: linear-gradient(
+    to right,
+    #ff8079,
+    #fd985a,
+    #f54b3c,
+    #cb6696,
+    #6f45aa,
+    #5d5ae4,
+    #252552
+  );
+}
+
+body {
+  background: var(--bg);
+  padding: 1em;
+  color: var(--body-color);
+}
+
+.site-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.site-header .site-brand {
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  font-size: 1.25em;
+}
+
+.site-header nav {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.site-header nav a {
+  background: var(--rainbow-gradient) bottom left/0 0 no-repeat;
+  display: block;
+  padding: 0.5em 1em;
+  color: #fff;
+  -webkit-transition: all 300ms cubic-bezier(0.86, 0, 0.07, 1);
+  transition: all 300ms cubic-bezier(0.86, 0, 0.07, 1);
+}
+.site-header nav a:hover, .site-header nav a:focus {
+  text-decoration: none;
+  background-size: 100% 2px;
+}
+
+.site-header .search {
+  position: relative;
+  background: var(--rainbow-gradient);
+  padding: 2px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 500px;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+.site-header .search input[type=search] {
+  border-radius: 500px;
+  background: var(--bg);
+  padding: 0.5em;
+  outline: none;
+  color: var(--body-color);
+  border: 0;
+  position: relative;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+.site-header .search button {
+  position: absolute;
+  right: 0.5em;
+  background: var(--rainbow-gradient);
+  color: #fff;
+  border: 0;
+  border-radius: 50%;
+  line-height: 1;
+  padding: 0.5em;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.site-header .search button svg {
+  width: 1em;
+  height: 1em;
+}
+
+@media (min-width: 48em) {
+  .site-header {
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  .site-header .search {
+    min-width: 30ch;
+  }
+}
+.icon {
+  width: 1em;
+  height: 1em;
+}
+
+img {
+  max-width: 100%;
+}
+
+.section-hero {
+  margin-top: 2em;
+}
+.section-hero .section-title {
+  font-size: 46px;
+}
+
+.section-title {
+  font-size: 46px;
+}
+.section-title strong {
+  background: var(--rainbow-gradient) center center/200%;
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+}
+
+.section-cta {
+  margin: 2em 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1em;
+}
+
+.button {
+  border-radius: 500px;
+  text-transform: capitalize;
+  -webkit-transition: all 300ms cubic-bezier(0.86, 0, 0.07, 1);
+  transition: all 300ms cubic-bezier(0.86, 0, 0.07, 1);
+}
+.button.button-filled {
+  color: var(--body-color);
+  background: var(--rainbow-gradient);
+  font-weight: 500;
+  padding: 0.5em 1em;
+}
+.button.button-outline {
+  position: relative;
+  padding: 1px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 500px;
+  color: rgba(255, 255, 255, 0.8);
+}
+.button.button-outline:before {
+  content: "";
+  position: absolute;
+  background: var(--rainbow-gradient);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 500px;
+}
+.button.button-outline span {
+  background: var(--bg);
+  padding: 0.5em 1em;
+  position: relative;
+  border-radius: 500px;
+}
+.button.button-outline:hover, .button.button-outline:focus {
+  text-decoration: none;
+  padding: 4px;
+}
+
+.section-hero .stats {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+.section-hero .stats .stat {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 0 1em;
+  border-left: 1px solid #fff;
+  font-size: 1.125em;
+}
+.section-hero .stats .stat:first-of-type {
+  border-left: 0;
+  margin-left: -1em;
+}
+
+.section-hero .illustration {
+  padding: 1em;
+  margin-top: 4em;
+}
+
+@media (min-width: 48em) {
+  .section-hero {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 3em;
+  }
+  .section-hero .content {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  .section-hero .section-title {
+    font-size: 82px;
+    max-width: 15ch;
+  }
+  .section-hero .stats {
+    font-size: 21px;
+  }
+}
+.illustration.with-rainbow-circle {
+  position: relative;
+}
+.illustration.with-rainbow-circle:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  aspect-ratio: 1/1;
+  background: var(--rainbow-gradient);
+  border-radius: 50%;
+  height: 90%;
+}
+.illustration.with-rainbow-circle > * {
+  position: relative;
+  z-index: 2;
+}
+
+.section-reasurance {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1em;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.section-reasurance li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 1.25em;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: 600;
+  line-height: 1;
+}
+.section-reasurance .illustration {
+  width: 96px;
+  height: 96px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.section-reasurance img {
+  height: 32px;
+  width: auto;
+  margin: auto;
+}
